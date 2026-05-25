@@ -1,0 +1,6 @@
+{
+  "name": "Chat Exporter",
+  "description": "Convert AI chat links into organized, professional PDF and Word documents.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
