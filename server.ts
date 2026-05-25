@@ -4,7 +4,18 @@ import { createServer as createViteServer } from "vite";
 import { GoogleGenAI, Type, Schema } from "@google/genai";
 import cors from "cors";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+// We will lazy-initialize GoogleGenAI to prevent crashing on boot if the key is not set.
+let aiClient: GoogleGenAI | null = null;
+function getAi() {
+  if (!aiClient) {
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      throw new Error("GEMINI_API_KEY is not configured. Please add it via the Settings menu in AI Studio.");
+    }
+    aiClient = new GoogleGenAI({ apiKey });
+  }
+  return aiClient;
+}
 
 async function startServer() {
   const app = express();
@@ -136,6 +147,7 @@ async function startServer() {
 
       let allParsedData: any[] = [];
       const callGemini = async (contents: any[], retries = 3): Promise<any> => {
+         const ai = getAi();
          for (let i = 0; i < retries; i++) {
            try {
              const response = await ai.models.generateContent({
