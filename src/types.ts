@@ -8,6 +8,7 @@ export interface ChatHistoryItem {
   name: string;
   timestamp: number;
   chatData: ChatMessage[];
+  user_id?: string;
 }
 
 export type ExportStyle = "modern" | "academic";
