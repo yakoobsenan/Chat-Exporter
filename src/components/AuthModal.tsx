@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
-import { X, Loader2, FileText } from "lucide-react";
+import { X, Loader as Loader2, FileText } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface AuthModalProps {

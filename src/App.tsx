@@ -7,21 +7,7 @@ import AuthModal from "./components/AuthModal";
 import { exportToPDF, exportToDocx, exportToMarkdown } from "./lib/exportUtils";
 import { supabase } from "./lib/supabase";
 import { ChatMessage, ChatHistoryItem, ExportStyle } from "./types";
-import {
-  FileDown,
-  Link as LinkIcon,
-  Loader2,
-  UploadCloud,
-  Trash2,
-  Copy,
-  Check,
-  Printer,
-  Menu,
-  Sparkles,
-  LogIn,
-  LogOut,
-  User,
-} from "lucide-react";
+import { FileDown, Link as LinkIcon, Loader as Loader2, CloudUpload as UploadCloud, Trash2, Copy, Check, Printer, Menu, Sparkles, LogIn, LogOut, User } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
